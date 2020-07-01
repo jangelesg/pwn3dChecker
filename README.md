@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 - java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs -name adobe
 - java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com
 
-![](https://github.com/jangelesg/pwn3dChecker/blob/master/info/pwn3dcheck1.jpg)
+![](https://github.com/jangelesg/pwn3dChecker/blob/master/info/pwn3dcheck2.jpg)
 ![](https://github.com/jangelesg/pwn3dChecker/blob/master/info/pwn3dcheck1.jpg)
 
 

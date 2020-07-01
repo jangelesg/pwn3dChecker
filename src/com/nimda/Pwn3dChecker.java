@@ -10,6 +10,7 @@ public class Pwn3dChecker {
      */
     String key;
     HttpClientSync pwned_client_req;
+    HttpResponse<String> response;
 
 
     public Pwn3dChecker(String key) {
@@ -106,6 +107,34 @@ public class Pwn3dChecker {
             }
         }
     }
+    //
+    public void GettingAllPwnedPasswordsbyHash(String  hash_prefix ) throws IOException, InterruptedException {
+        /*
+        Pwned Passwords overview
+        Pwned Passwords are more than half a billion passwords which have previously been exposed in data breaches.
+        The service is detailed in the launch blog post then further expanded on with the release of version 2.
+        The entire data set is both downloadable and searchable online via the Pwned Passwords page.
+        Each password is stored as a SHA-1 hash of a UTF-8 encoded password.
+        The downloadable source data delimits the full SHA-1 hash and the password count with a colon (:) and each line with a CRLF.
+        Searching by range
+        In order to protect the value of the source password being searched for, Pwned Passwords also implements a k-Anonymity model
+        that allows a password to be searched for by partial hash. This allows the first 5 characters of a
+        SHA-1 password hash (not case-sensitive) to be passed to the API
+
+         */
+        String url_get_passwd_pwned_by_hash = "https://api.pwnedpasswords.com/range/" + hash_prefix;
+        this.response = pwned_client_req.HttpClient(url_get_passwd_pwned_by_hash, key);
+
+        if (response.statusCode() == 200) {
+            System.out.println("[*] Hash Prefix found for: " + hash_prefix + "\n");
+            System.out.println(response.body());
+        } else {
+            System.out.println("[x] Status Code " + response.statusCode());
+            if (response.statusCode() == 404){
+                System.out.println("    [-] No Pastes were found (: for " + hash_prefix + " But be Careful!!!");
+            }
+        }
+    }
 
 }
 
@@ -116,16 +145,5 @@ public class Pwn3dChecker {
 
 
 
-
-/*
-    public static void main(String[] args) throws InterruptedException, IOException {
-        Pwn3dCheck check_for_breach  = new Pwn3dCheck("71a0bea02e84414689c833df0220b50a");
-        check_for_breach.GettingAllBreachesForAnAccount("jonathan.angeles.contractor@bbva.com");
-        //check_for_breach.GetDataClasses();
-        //check_for_breach.GettingASingleBreachedSite("adobe");
-        //check_for_breach.GettingAllBreachedSitesInTheSystem();
-    }
-
- */
 
 

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception , IOException {
+    public static void main(String[] args) throws Exception {
 
 
         Options options = new Options();
@@ -35,6 +35,10 @@ public class Main {
         pa.setRequired(false);
         options.addOption(pa);
 
+        Option pp = new Option("pp", "Passwords Pwned", false, "Passwords Pwned - Required a Hash Suffix");
+        pp.setRequired(false);
+        options.addOption(pp);
+        // additional args
         Option account = new Option("acc", "email-account", true, "Email Account");
         account.setRequired(false);
         options.addOption(account);
@@ -42,6 +46,10 @@ public class Main {
         Option site_name = new Option("n", "name", true, "Site Name");
         site_name.setRequired(false);
         options.addOption(site_name);
+
+        Option hp = new Option("hp", "hash-prefix", true, "Hash Prefix");
+        hp.setRequired(false);
+        options.addOption(hp);
 
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
@@ -53,7 +61,7 @@ public class Main {
         catch (ParseException e) {
             System.out.println(e.getMessage());
             formatter.printHelp(" -:== Pwn3dChecker V1.0 ==:- \n" +
-                    "   ';--have i been pwned?\n" +
+                    "   ';--have you been pwned?\n" +
                     "   Author: Jonathan Angeles\n" +
                     "   Email: jangelesg@gangsecurity.com\n" +
                     "   GitHub: https://github.com/jangelesg/Pwn3dChecker/\n" +
@@ -61,7 +69,8 @@ public class Main {
                     "java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs\n" +
                     "java -jar pwn3dCheck.jar -k xxxxxx-api-key -b\n" +
                     "java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs -name adobe\n" +
-                    "java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com\n", options);
+                    "java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com\n" +
+                    " ", options);
             System.exit(1);
         }
 
@@ -135,6 +144,39 @@ public class Main {
             else {
                 //
                 System.out.println("[X] C3 Error found with the arguments ");
+                System.exit(1);
+            }
+        }
+
+        if(cmd.hasOption("dc")) {
+            /*
+            A "breach" is an instance of a system having been compromised by an attacker and the data disclosed.
+            For example, Adobe was a breach, Gawker was a breach etc. It is possible to return the details of each of
+            breach in the system which currently stands at 456 breaches.
+             */
+            System.out.println(banner);
+            check_for_breach.GetDataClasses();
+        }
+
+        if(cmd.hasOption("pp")) {
+            /*
+            Pwned Passwords are more than half a billion passwords which have previously been exposed in data breaches.
+            The service is detailed in the launch blog post then further expanded on with the release of version 2.
+            The entire data set is both downloadable and searchable online via the Pwned Passwords page.
+            Each password is stored as a SHA-1 hash of a UTF-8 encoded password. The downloadable source data delimits
+            the full SHA-1 hash and the password count with a colon (:) and each line with a CRLF.
+            Searching by range In order to protect the value of the source password being searched for, Pwned Passwords
+            also implements a k-Anonymity model that allows a password to be searched for by partial hash.
+            This allows the first 5 characters of a SHA-1 password hash (not case-sensitive) to be passed to the API
+             */
+            if (cmd.hasOption("hp")){
+                String hash_suffix = cmd.getOptionValue("hp");
+                System.out.println(banner);
+                check_for_breach.GettingAllPwnedPasswordsbyHash(hash_suffix);
+            }
+            else {
+                //
+                System.out.println("[X] C3 Error found with the arguments - hash prefix missing");
                 System.exit(1);
             }
         }

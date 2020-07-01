@@ -31,10 +31,20 @@ public class Pwn3dChecker {
             System.out.println("[*] Breaches found for: " + email + "\n");
             System.out.println(response.body());
         } else {
-            System.out.println("[x] Status Code " + response.statusCode());
             if (response.statusCode() == 404){
                 System.out.println("    [-] No Breaches were found (: for " + email + " But be Careful!!!");
+                System.exit(1);
                }
+
+            if (response.statusCode() == 401){
+                //Unauthorised — either no API key was provided or it wasn't valid
+                System.out.println("[x] Unauthorised — either no API key was provided or it wasn't valid - Status Code " + response.statusCode());
+                System.exit(1);
+            }
+
+            System.out.println("[x] Status Code " + response.statusCode());
+
+
         }
     }
 

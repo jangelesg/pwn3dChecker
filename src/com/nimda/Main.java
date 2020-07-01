@@ -2,8 +2,6 @@ package com.nimda;
 
 import org.apache.commons.cli.*;
 
-import java.io.IOException;
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -35,7 +33,7 @@ public class Main {
         pa.setRequired(false);
         options.addOption(pa);
 
-        Option pp = new Option("pp", "Passwords Pwned", false, "Passwords Pwned - Required a Hash Suffix");
+        Option pp = new Option("pp", "Passwords-Pwned", false, "Passwords Pwned - Required a Hash Suffix");
         pp.setRequired(false);
         options.addOption(pp);
         // additional args
@@ -70,6 +68,7 @@ public class Main {
                     "java -jar pwn3dCheck.jar -k xxxxxx-api-key -b\n" +
                     "java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs -name adobe\n" +
                     "java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com\n" +
+                    "java -jar pwn3dCheck.jar -k xxxxxx-api-key -pp -hp 21BD2\n" +
                     " ", options);
             System.exit(1);
         }

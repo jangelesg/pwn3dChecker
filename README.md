@@ -25,11 +25,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 ---
 ## Author 
 - Jonathan Angeles <jangelesg@gangsecurity.com>
-- https://github.com/jangelesg/
+- https://github.com/jangelesg/pwn3dChecker
 ---
 ## Usage 
+  Command Line tool that interact with RESTFull Services from https://haveibeenpwned.com/  
   An API KEY is require to consult some services 
-  https://haveibeenpwned.com/API/Key
   
 - java -jar pwn3dCheck.jar -k xxxxxx-api-key -acc user@domain.com -ba
 - java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs
@@ -38,6 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 - java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com
 
 ![](https://github.com/jangelesg/pwn3dChecker/blob/master/info/pwn3dcheck2.jpg)
+
 ![](https://github.com/jangelesg/pwn3dChecker/blob/master/info/pwn3dcheck.gif)
 
 

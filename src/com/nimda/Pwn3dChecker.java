@@ -116,16 +116,3 @@ public class Pwn3dChecker {
 
 
 
-
-/*
-    public static void main(String[] args) throws InterruptedException, IOException {
-        Pwn3dCheck check_for_breach  = new Pwn3dCheck("71a0bea02e84414689c833df0220b50a");
-        check_for_breach.GettingAllBreachesForAnAccount("jonathan.angeles.contractor@bbva.com");
-        //check_for_breach.GetDataClasses();
-        //check_for_breach.GettingASingleBreachedSite("adobe");
-        //check_for_breach.GettingAllBreachedSitesInTheSystem();
-    }
-
- */
-
-

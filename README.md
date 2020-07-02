@@ -1,7 +1,7 @@
-#  Pwn3dChecker
+#  Pwn3dChecker **Version 1.0**
 # ';--have YOU been pwned? ![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
 ![](https://img.shields.io/badge/Java-powered-green)
-**Version 1.0**
+
 
 - Check if you have an account that has been compromised in a data breach
 - This tool uses API v3 The API allows the list of pwned accounts (email addresses and usernames) to be quickly searched via a RESTful service.

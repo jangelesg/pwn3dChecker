@@ -25,7 +25,7 @@ public class Pwn3dChecker {
 
          */
         String url_get_breach_by_email = "https://haveibeenpwned.com/api/v3/breachedaccount/" + email;
-        HttpResponse<String> response = pwned_client_req.HttpClient(url_get_breach_by_email, key);
+        response = pwned_client_req.HttpClient(url_get_breach_by_email, key);
 
         if (response.statusCode() == 200) {
             System.out.println("[*] Breaches found for: " + email + "\n");
@@ -53,7 +53,7 @@ public class Pwn3dChecker {
         Getting all data classes in the system
          */
         String url_get_dataclases = "https://haveibeenpwned.com/api/v3/dataclasses";
-        HttpResponse<String> response = pwned_client_req.HttpClient(url_get_dataclases, key);
+        response = pwned_client_req.HttpClient(url_get_dataclases, key);
         if (response.statusCode() == 200) {
             System.out.println("[*] Data Classes found:\n");
             System.out.println(response.body());
@@ -69,7 +69,7 @@ public class Pwn3dChecker {
             Getting all breached sites in the system
          */
         String url_get_breach_by_sites = "https://haveibeenpwned.com/api/v3/breaches";
-        HttpResponse<String> response = pwned_client_req.HttpClient(url_get_breach_by_sites, key);
+        response = pwned_client_req.HttpClient(url_get_breach_by_sites, key);
 
         if (response.statusCode() == 200) {
             System.out.println("[*] Breached Sites in System: \n");
@@ -86,7 +86,7 @@ public class Pwn3dChecker {
          */
 
         String url_get_breach_by_single_site = "https://haveibeenpwned.com/api/v3/breach/" + site;
-        HttpResponse<String> response = pwned_client_req.HttpClient(url_get_breach_by_single_site, key);
+        response = pwned_client_req.HttpClient(url_get_breach_by_single_site, key);
 
         if (response.statusCode() == 200) {
             System.out.println("[*] Breaches found for: " + site + "\n");
@@ -105,7 +105,7 @@ public class Pwn3dChecker {
 
          */
         String url_get_pastes_by_email = "https://haveibeenpwned.com/api/v3/pasteaccount/" + email;
-        HttpResponse<String> response = pwned_client_req.HttpClient(url_get_pastes_by_email, key);
+        response = pwned_client_req.HttpClient(url_get_pastes_by_email, key);
 
         if (response.statusCode() == 200) {
             System.out.println("[*] Pastes found for: " + email + "\n");
@@ -133,7 +133,7 @@ public class Pwn3dChecker {
 
          */
         String url_get_passwd_pwned_by_hash = "https://api.pwnedpasswords.com/range/" + hash_prefix;
-        this.response = pwned_client_req.HttpClient(url_get_passwd_pwned_by_hash, key);
+        response = pwned_client_req.HttpClient(url_get_passwd_pwned_by_hash, key);
 
         if (response.statusCode() == 200) {
             System.out.println("[*] Hash Prefix found for: " + hash_prefix + "\n");

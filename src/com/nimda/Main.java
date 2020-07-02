@@ -58,7 +58,7 @@ public class Main {
         }
         catch (ParseException e) {
             System.out.println(e.getMessage());
-            formatter.printHelp(" -:== Pwn3dChecker V1.0 ==:- \n" +
+            formatter.printHelp("\n   -:== Pwn3dChecker V1.0 ==:- \n" +
                     "   ';--have you been pwned?\n" +
                     "   Author: Jonathan Angeles\n" +
                     "   Email: jangelesg@gangsecurity.com\n" +

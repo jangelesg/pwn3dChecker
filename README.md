@@ -27,12 +27,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 ## Usage 
   Command Line tool that interact with RESTFull Services from https://haveibeenpwned.com/  
   An API KEY is require to consult some services 
-  
-- java -jar pwn3dCheck.jar -k xxxxxx-api-key -acc user@domain.com -ba
-- java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs
-- java -jar pwn3dCheck.jar -k xxxxxx-api-key -b
-- java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs -name adobe
-- java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com
+  ```console
+java -jar pwn3dCheck.jar -k xxxxxx-api-key -acc user@domain.com -ba
+  ```
+```console
+java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs
+```
+
+```console
+java -jar pwn3dCheck.jar -k xxxxxx-api-key -b
+```
+```console
+java -jar pwn3dCheck.jar -k xxxxxx-api-key -bs -name adobe
+```
+```console
+java -jar pwn3dCheck.jar -k xxxxxx-api-key -pa -acc user@domain.com
+```
 
 ![](https://github.com/jangelesg/pwn3dChecker/blob/master/info/pwn3dcheck2.jpg)
 

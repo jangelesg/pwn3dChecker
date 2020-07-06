@@ -3,9 +3,7 @@
 
 
 - Check if you have an account that has been compromised in a data breach
-- Command Line tool uses API v3 The API allows the list of pwned accounts (email addresses and usernames) to be quickly searched via a RESTful service.
-  https://haveibeenpwned.com/API/v3
-
+- Command Line tool it uses an API v3 (https://haveibeenpwned.com/API/v3) that allows the list of pwned accounts (email addresses and usernames) to be quickly searched via a RESTful service. 
 
  ---
  ## License and Copyright 
